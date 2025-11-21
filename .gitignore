@@ -1,0 +1,71 @@
+# Audio files and outputs
+*.wav
+*.mp3
+*.flac
+*.m4a
+songs/
+
+# Environment files (may contain secrets)
+*.env
+app/.env
+song_downloader/.env
+vectorization_engine/.env
+spotify_control/.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+pip-wheel-metadata/
+
+# Byte-compiled / optimized / DLL files
+*.so
+*.dylib
+*.dll
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Logs and databases
+*.log
+.cache
+.pytest_cache/
+.coverage
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Notebook checkpoints
+.ipynb_checkpoints
+
+# Hugging Face and model artifacts / caches
+%CD%/.hf/
+.hf/
+model.safetensors
+*.safetensors
+pytorch_model.bin
+tf_model.h5
+adapter_model.bin
+
+# Secrets / tokens / cookies
+.spotify_tokens.json
+spotify_cookies.json
+cookies.json
+
+# Misc

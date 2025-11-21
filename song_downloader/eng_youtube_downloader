@@ -1,0 +1,31 @@
+from yt_dlp import YoutubeDL
+import os
+
+
+
+out_dir = "songs"
+os.makedirs(out_dir, exist_ok=True)
+
+
+
+def query_youtube_and_download(artist: str, title: str, spotify_id: str = "") -> str:
+
+    print(os.path.join(out_dir, spotify_id))
+    ydl_opts = {
+        "format": "bestaudio/best",            # audio-only
+        "noplaylist": True,
+        "outtmpl": os.path.join(out_dir, f"{spotify_id}.%(ext)s"),
+        "postprocessors": [
+            {"key": "FFmpegExtractAudio", "preferredcodec": "wav"}
+        ],
+        "prefer_ffmpeg": True,
+    }
+    
+    query = f"{artist} - {title}"
+
+    with YoutubeDL(ydl_opts) as ydl:
+        info = ydl.extract_info(f"ytsearch1:{query}", download=True)
+        entry = info["entries"][0] if "entries" in info else info
+        print("Saved:", os.path.join(out_dir, f"{entry['id']}.wav"))
+
+    return os.path.join(out_dir, f"{entry['id']}.wav")
